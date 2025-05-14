@@ -2,13 +2,14 @@
 
 document.getElementById("reset").onclick = () => {
     document.getElementById("exercise-time").value = "";
-    document.getElementById("reset-time").value = "";
+    // document.getElementById("reset-time").value = ""; // temp
     document.getElementById("set-count").value = "";
 }
 
 document.getElementById("start").onclick = () => {
     let exerciseTime = +document.getElementById("exercise-time").value;
-    let resetTime = +document.getElementById("reset-time").value;
+    // let resetTime = +document.getElementById("reset-time").value; // temp
+    let resetTime = 10; // temp
     let setCount = +document.getElementById("set-count").value;
 
     if (exerciseTime == 0 || resetTime == 0 || setCount == 0) {
@@ -47,7 +48,7 @@ document.getElementById("start").onclick = () => {
             <span class="h6 text-secondary">set <span id="set-counter">1</span></span>
 
             <button type="button" class="btn btn-sm btn-danger" id="stop">
-                <span>Stop </span>
+                <span>Cancel </span>
                 <i class="fas fa-ban"></i>
             </button>
         `;
@@ -85,7 +86,7 @@ document.getElementById("start").onclick = () => {
                         <span class="h6 text-secondary">set <span id="set-counter"></span></span>
 
                         <button type="button" class="btn btn-sm btn-danger" id="stop">
-                            <span>Stop </span>
+                            <span>Cancel </span>
                             <i class="fas fa-ban"></i>
                         </button>
                     `;
@@ -98,7 +99,7 @@ document.getElementById("start").onclick = () => {
                         <span class="h6 text-secondary">set <span id="set-counter"></span></span>
             
                         <button type="button" class="btn btn-sm btn-danger" id="stop">
-                            <span>Stop </span>
+                            <span>Cancel </span>
                             <i class="fas fa-ban"></i>
                         </button>
                     `;
