@@ -21,11 +21,91 @@ document.getElementById("start").onclick = () => {
         exerciseTime = exerciseTime > 60 ? 60 : exerciseTime;
         resetTime = resetTime < 5 ? 5 : resetTime;
         resetTime = resetTime > 60 ? 60 : resetTime;
-        setCount = setCount < 5 ? 5 : setCount;
         setCount = setCount > 60 ? 60 : setCount;
     }
 
+    let blinkBeforeStart = setInterval(function() {
+        let inspireText = document.getElementById("inspire-text");
+        if (inspireText.getAttribute("class") == "mt-4 text-primary") {
+            inspireText.setAttribute("class", "mt-4 text-danger fw-bold");
+            inspireText.innerHTML = "Get Ready!";
+        } else {
+            inspireText.setAttribute("class", "mt-4 text-primary");
+            inspireText.innerHTML = "Get Ready!";
+        }
+    }, 200);
 
-    console.log(exerciseTime);
+    setTimeout(function() {
+        clearInterval(blinkBeforeStart);
+        document.getElementById("inspire-text").setAttribute("class", "d-none");
+
+        let content = document.getElementById("content");
+        content.innerHTML = `
+            <span id="exercise-info" data-type="exercise"></span>
+            <i class="fas fa-dumbbell mb-2 text-success exercise-icons" id="exercise-icon"></i>
+            <span class="h1 fw-bold text-success" id="exercise-counter-container"><span class="h1 fw-bold text-success" id="exercise-counter">0</span>s</span>
+            <span class="h6 text-secondary">set <span id="set-counter">1</span></span>
+
+            <button type="button" class="btn btn-sm btn-danger" id="stop">
+                <span>Stop </span>
+                <i class="fas fa-ban"></i>
+            </button>
+        `;
+
+        document.getElementById("stop").onclick = () => {
+            clearInterval(exerciseInterval);
+            content.innerHTML = `
+                <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
+            `;
+        }
+
+        let set = 1;
+        let count = 0;
+        let exerciseInterval = setInterval(function() {
+            document.getElementById("exercise-counter").innerHTML = count;
+            document.getElementById("set-counter").innerHTML = set;
+            count++;
+
+            if (count > exerciseTime) {
+
+                if (set > setCount) {
+                    clearInterval(exerciseInterval);
+                    content.innerHTML = `<h1 class="mt-4 text-success" id="inspire-text">Good job!</h1>`;
+                }
+
+                let type = document.getElementById("exercise-info");
+
+                if (type.dataset.type == "exercise") {
+                    set++;
+                    count = 0;
+                    content.innerHTML = `
+                        <span id="exercise-info" data-type="rest"></span>
+                        <i class="fas fa-heart-pulse mb-2 text-danger exercise-icons"></i>
+                        <span class="h1 fw-bold text-danger" id="exercise-counter-container"><span class="h1 fw-bold text-danger" id="exercise-counter"></span>s</span>
+                        <span class="h6 text-secondary">set <span id="set-counter"></span></span>
+
+                        <button type="button" class="btn btn-sm btn-danger" id="stop">
+                            <span>Stop </span>
+                            <i class="fas fa-ban"></i>
+                        </button>
+                    `;
+                } else {
+                    count = 0;
+                    content.innerHTML = `
+                        <span id="exercise-info" data-type="exercise"></span>
+                        <i class="fas fa-dumbbell mb-2 text-success exercise-icons"></i>
+                        <span class="h1 fw-bold text-success" id="exercise-counter-container"><span class="h1 fw-bold text-success" id="exercise-counter"></span>s</span>
+                        <span class="h6 text-secondary">set <span id="set-counter"></span></span>
+            
+                        <button type="button" class="btn btn-sm btn-danger" id="stop">
+                            <span>Stop </span>
+                            <i class="fas fa-ban"></i>
+                        </button>
+                    `;
+                }
+            }
+
+        }, 1000);
+
+    }, 3000);
 }
-
