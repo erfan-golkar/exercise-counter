@@ -53,19 +53,20 @@ document.getElementById("start").onclick = () => {
             </button>
         `;
 
-        document.getElementById("stop").onclick = () => {
-            clearInterval(exerciseInterval);
-            content.innerHTML = `
-                <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
-            `;
-        }
-
         let set = 1;
         let count = 0;
         let exerciseInterval = setInterval(function() {
             document.getElementById("exercise-counter").innerHTML = count;
             document.getElementById("set-counter").innerHTML = set;
             count++;
+
+            document.getElementById("stop").onclick = () => {
+                console.log("hi");
+                clearInterval(exerciseInterval);
+                content.innerHTML = `
+                    <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
+                `;
+            }
 
             if (count > exerciseTime) {
 
