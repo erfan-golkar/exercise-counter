@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
-        <title>Exercise counter</title>
-    </head>
 
-    <body>
-        <div class="bg-white rounded shadow mx-3 mt-5 p-2">
-            <div class="d-flex mb-4">
-                <div class="input-group m-1">
-                    <label for="" class="d-flex m-auto">Exercise time</label>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="module" src="./assets/js/app.js"></script>
+    <title>Exercise counter</title>
+</head>
 
-                    <div class="input-group input-group-sm m-1">
-                        <input type="number" id="exercise-time" class="form-control form-control-sm" min="5" max="60" />
-                        <span class="input-group-text">Sec.</span>
-                    </div>
+<body>
+    <div class="bg-white rounded shadow mx-3 mt-5 p-2">
+        <div class="d-flex mb-4">
+            <div class="input-group m-1">
+                <label for="" class="d-flex m-auto">Exercise time</label>
+
+                <div class="input-group input-group-sm m-1">
+                    <input type="number" id="exercise-time" class="form-control form-control-sm" min="5" max="60" />
+                    <span class="input-group-text">Sec.</span>
                 </div>
+            </div>
 
-                <!-- <div class="input-group m-1">
+            <!-- <div class="input-group m-1">
                     <label for="" class="d-flex m-auto">Rest time</label>
 
                     <div class="input-group input-group-sm m-1">
@@ -30,38 +30,35 @@
                     </div>
                 </div> -->
 
-                <div class="input-group m-1">
-                    <label for="" class="d-flex m-auto">Set count</label>
+            <div class="input-group m-1">
+                <label for="" class="d-flex m-auto">Set count</label>
 
-                    <div class="input-group input-group-sm m-1">
-                        <input type="number" id="set-count" class="form-control form-control-sm" min="1" max="60" />
-                        <span class="input-group-text">Set</span>
-                    </div>
+                <div class="input-group input-group-sm m-1">
+                    <input type="number" id="set-count" class="form-control form-control-sm" min="1" max="60" />
+                    <span class="input-group-text">Set</span>
                 </div>
-            </div>
-
-            <!-- when the data is not sent -->
-            <span class="d-block text-center text-danger mb-4" style="font-size: 18px;" id="error-message"></span>
-
-            <div class="d-flex justify-content-center mb-4 gap-2">
-                <button type="button" class="btn btn-sm btn-primary" id="reset">
-                    <span>Reset </span>
-                    <i class="fas fa-repeat"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-success" id="start">
-                    <span>Start </span>
-                    <i class="fas fa-fire-flame-curved"></i>
-                </button>
-            </div>
-            <hr />
-            <div class="d-flex flex-column align-items-center mb-4" id="content">
-                <!-- before start -->
-                <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
             </div>
         </div>
 
-        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/fontawesome/js/all.min.js"></script>
-        <script src="assets/js/app.js"></script>
-    </body>
+        <!-- when the data is not sent -->
+        <span class="d-block text-center text-danger mb-4" style="font-size: 18px;" id="error-message"></span>
+
+        <div class="d-flex justify-content-center mb-4 gap-2">
+            <button type="button" class="btn btn-sm btn-primary" id="reset">
+                <span>Reset </span>
+                <i class="fas fa-repeat"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-success" id="start">
+                <span>Start </span>
+                <i class="fas fa-fire-flame-curved"></i>
+            </button>
+        </div>
+        <hr />
+        <div class="d-flex flex-column align-items-center mb-4" id="content">
+            <!-- before start -->
+            <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
+        </div>
+    </div>
+</body>
+
 </html>
