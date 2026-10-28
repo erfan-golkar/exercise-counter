@@ -1,0 +1,35 @@
+:root {
+    --bg: #dcd8e4;
+
+    /* colors */
+    --color-1: #eee;
+    --color-2: #ddd;
+    --color-3: #ccc;
+    --color-4: #bbb;
+    --color-5: #aaa;
+    --color-6: #999;
+    --color-7: #888;
+    --color-8: #777;
+    --color-9: #666;
+    --color-10: #555;
+    --color-11: #444;
+    --color-12: #333;
+    --color-13: #222;
+    --color-14: #111;
+
+    --bs-primary: #0d6efd;
+    --bs-primary-hover: #0c62e4;
+    --bs-primary-active: #0a58cd;
+
+    --bs-warning: #ffc107;
+    --bs-warning-hover: #ffd500;
+    --bs-warning-active: #f6cd00;
+
+    --bs-success: #198754;
+    --bs-success-hover: #159740;
+    --bs-success-active: #0d8d37;
+
+    --bs-danger: #dc3545;
+    --bs-danger-hover: #df2335;
+    --bs-danger-active: #d0182b;
+}

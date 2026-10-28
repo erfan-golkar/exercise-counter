@@ -10,53 +10,128 @@
 </head>
 
 <body>
-    <div class="bg-white rounded shadow mx-3 mt-5 p-2">
-        <div class="d-flex mb-4">
-            <div class="input-group m-1">
-                <label for="" class="d-flex m-auto">Exercise time</label>
-
-                <div class="input-group input-group-sm m-1">
-                    <input type="number" id="exercise-time" class="form-control form-control-sm" min="5" max="60" />
-                    <span class="input-group-text">Sec.</span>
-                </div>
-            </div>
-
-            <!-- <div class="input-group m-1">
-                    <label for="" class="d-flex m-auto">Rest time</label>
-
-                    <div class="input-group input-group-sm m-1">
-                        <input type="number" id="reset-time" class="form-control form-control-sm" min="5" max="60" />
-                        <span class="input-group-text">Sec.</span>
+    <div class="container">
+        <div class="box">
+            <div class="inputs-container">
+                <div class="input-group">
+                    <label for="exercise-time">Exercise time</label>
+    
+                    <div class="input-container">
+                        <input type="number" id="exercise-time" min="5" max="60" />
+                        <span class="input-inner-label">s</span>
                     </div>
-                </div> -->
+                </div>
+    
+                <div class="input-group">
+                    <label for="reset-time">Rest time</label>
 
-            <div class="input-group m-1">
-                <label for="" class="d-flex m-auto">Set count</label>
-
-                <div class="input-group input-group-sm m-1">
-                    <input type="number" id="set-count" class="form-control form-control-sm" min="1" max="60" />
-                    <span class="input-group-text">Set</span>
+                    <div class="input-container">
+                        <input type="number" id="reset-time" min="5" max="60" />
+                        <span class="input-inner-label">s</span>
+                    </div>
+                </div>
+    
+                <div class="input-group">
+                    <label for="set-count">Set count</label>
+    
+                    <div class="input-container">
+                        <input type="number" id="set-count" min="1" max="60" />
+                    </div>
                 </div>
             </div>
-        </div>
+    
+            <!-- when the data is not sent -->
+            <span class="d-block text-center text-danger mb-4" style="font-size: 18px;" id="error-message"></span>
+    
+            <div class="btn-container">
+                <button type="button" class="btn btn-primary" id="clear">
+                    <span>Clear</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-success" id="start">
+                    <span>Start</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                            <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
 
-        <!-- when the data is not sent -->
-        <span class="d-block text-center text-danger mb-4" style="font-size: 18px;" id="error-message"></span>
+            <hr class="divider" />
 
-        <div class="d-flex justify-content-center mb-4 gap-2">
-            <button type="button" class="btn btn-sm btn-primary" id="reset">
-                <span>Reset </span>
-                <i class="fas fa-repeat"></i>
-            </button>
-            <button type="button" class="btn btn-sm btn-success" id="start">
-                <span>Start </span>
-                <i class="fas fa-fire-flame-curved"></i>
-            </button>
-        </div>
-        <hr />
-        <div class="d-flex flex-column align-items-center mb-4" id="content">
-            <!-- before start -->
-            <h1 class="mt-4 text-primary" id="inspire-text">Get Ready!</h1>
+            <div id="content">
+                <!-- title -->
+                <div class="title-container d-none">
+                    <h1 class="text-danger" id="inspire-text">GET READY</h1>
+                </div>
+
+                <div class="exercise-container">
+                    <!-- exercise icons -->
+                    <div class="exercise-icons-container d-flex justify-content-center">
+                        <span class="exercise-icon-svg-container dumbbell-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="55px" height="55px" color="red">
+                                <path d="M96 64c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 160 0 64 0 160c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-64-32 0c-17.7 0-32-14.3-32-32l0-64c-17.7 0-32-14.3-32-32s14.3-32 32-32l0-64c0-17.7 14.3-32 32-32l32 0 0-64zm448 0l0 64 32 0c17.7 0 32 14.3 32 32l0 64c17.7 0 32 14.3 32 32s-14.3 32-32 32l0 64c0 17.7-14.3 32-32 32l-32 0 0 64c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-160 0-64 0-160c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32zM416 224l0 64-192 0 0-64 192 0z"/>
+                            </svg>
+                        </span>
+    
+                        <span class="exercise-icon-svg-container heart-icon d-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="55px" height="55px">
+                                <path d="M228.3 469.1L47.6 300.4c-4.2-3.9-8.2-8.1-11.9-12.4l87 0c22.6 0 43-13.6 51.7-34.5l10.5-25.2 49.3 109.5c3.8 8.5 12.1 14 21.4 14.1s17.8-5 22-13.3L320 253.7l1.7 3.4c9.5 19 28.9 31 50.1 31l104.5 0c-3.7 4.3-7.7 8.5-11.9 12.4L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9zM503.7 240l-132 0c-3 0-5.8-1.7-7.2-4.4l-23.2-46.3c-4.1-8.1-12.4-13.3-21.5-13.3s-17.4 5.1-21.5 13.3l-41.4 82.8L205.9 158.2c-3.9-8.7-12.7-14.3-22.2-14.1s-18.1 5.9-21.8 14.8l-31.8 76.3c-1.2 3-4.2 4.9-7.4 4.9L16 240c-2.6 0-5 .4-7.3 1.1C3 225.2 0 208.2 0 190.9l0-5.8c0-69.9 50.5-129.5 119.4-141C165 36.5 211.4 51.4 244 84l12 12 12-12c32.6-32.6 79-47.5 124.6-39.9C461.5 55.6 512 115.2 512 185.1l0 5.8c0 16.9-2.8 33.5-8.3 49.1z"/>
+                            </svg>
+                        </span>
+                    </div>
+    
+                    <!-- counter -->
+                    <div class="counter text-center">
+                        <span class="number">9</span>
+                        <span class="second">s</span>
+                    </div>
+                    
+                    <div class="set-counter text-center">
+                        <div class="d-inline-block">
+                            <span class="d-block">SET</span>
+                            <span class="number d-block">2</span>
+                        </div>
+                    </div>
+
+                    <!-- btns -->
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-danger">
+                            <span>Stop</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+                                </svg>
+                            </span>
+                        </button>
+        
+                        <button type="button" class="btn btn-danger d-none">
+                            <span>Reset</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
+                                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
+                                </svg>
+                            </span>
+                        </button>
+        
+                        <button type="button" class="btn btn-success d-none">
+                            <span>Continue</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
