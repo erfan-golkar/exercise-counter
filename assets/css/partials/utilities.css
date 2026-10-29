@@ -1,9 +1,9 @@
 /* displays */
-.d-none {display: none;}
-.d-block {display: block;}
-.d-inline {display: inline;}
-.d-inline-block {display: inline-block;}
-.d-flex {display: flex;}
+.d-none {display: none !important;}
+.d-block {display: block !important;}
+.d-inline {display: inline !important;}
+.d-inline-block {display: inline-block !important;}
+.d-flex {display: flex !important;}
 
 /* flexbox */
 .justify-content-center {
@@ -54,6 +54,14 @@
 .btn-warning {background-color: var(--bs-warning); color: black;}
 .btn-warning:hover {background-color: var(--bs-warning-hover);}
 .btn-warning:active {background-color: var(--bs-warning-active);}
+
+.disabled, .disabled:hover, .disabled:active {
+    cursor: default;
+    background-color: darkgray;
+    color: white;
+    transition: none;
+    box-shadow: none;
+}
 
 /* misc */
 .divider {

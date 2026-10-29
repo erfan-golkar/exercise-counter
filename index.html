@@ -14,7 +14,10 @@
         <div class="box">
             <div class="inputs-container">
                 <div class="input-group">
-                    <label for="exercise-time">Exercise time</label>
+                    <div class="label-container">
+                        <label for="exercise-time">Exercise time</label>
+                        <span class="tip">min: 5s &nbsp;|&nbsp; max: 60s</span>
+                    </div>
     
                     <div class="input-container">
                         <input type="number" id="exercise-time" min="5" max="60" />
@@ -23,7 +26,10 @@
                 </div>
     
                 <div class="input-group">
-                    <label for="reset-time">Rest time</label>
+                    <div class="label-container">
+                        <label for="reset-time">Rest time</label>
+                        <span class="tip">min: 5s &nbsp;|&nbsp; max: 60s</span>
+                    </div>
 
                     <div class="input-container">
                         <input type="number" id="reset-time" min="5" max="60" />
@@ -32,19 +38,19 @@
                 </div>
     
                 <div class="input-group">
-                    <label for="set-count">Set count</label>
+                    <div class="label-container">
+                        <label for="set-count">Set count</label>
+                        <span class="tip">min: 1 &nbsp;|&nbsp; max: 60</span>
+                    </div>
     
                     <div class="input-container">
                         <input type="number" id="set-count" min="1" max="60" />
                     </div>
                 </div>
             </div>
-    
-            <!-- when the data is not sent -->
-            <span class="d-block text-center text-danger mb-4" style="font-size: 18px;" id="error-message"></span>
-    
+
             <div class="btn-container">
-                <button type="button" class="btn btn-primary" id="clear">
+                <button type="button" class="btn btn-primary row1-btns" id="clear">
                     <span>Clear</span>
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
@@ -53,7 +59,7 @@
                         </svg>
                     </span>
                 </button>
-                <button type="button" class="btn btn-success" id="start">
+                <button type="button" class="btn btn-success row1-btns" id="start">
                     <span>Start</span>
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
@@ -67,11 +73,11 @@
 
             <div id="content">
                 <!-- title -->
-                <div class="title-container d-none">
-                    <h1 class="text-danger" id="inspire-text">GET READY</h1>
+                <div class="title-container">
+                    <h1 class="" id="inspire-text">GET READY</h1>
                 </div>
 
-                <div class="exercise-container">
+                <div class="exercise-container d-none">
                     <!-- exercise icons -->
                     <div class="exercise-icons-container d-flex justify-content-center">
                         <span class="exercise-icon-svg-container dumbbell-icon">
@@ -88,21 +94,21 @@
                     </div>
     
                     <!-- counter -->
-                    <div class="counter text-center">
-                        <span class="number">9</span>
+                    <div class="counter text-center text-success">
+                        <span class="number">0</span>
                         <span class="second">s</span>
                     </div>
                     
                     <div class="set-counter text-center">
                         <div class="d-inline-block">
                             <span class="d-block">SET</span>
-                            <span class="number d-block">2</span>
+                            <span class="number d-block">1</span>
                         </div>
                     </div>
 
                     <!-- btns -->
                     <div class="btn-container">
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger stop-btn">
                             <span>Stop</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
@@ -111,7 +117,7 @@
                             </span>
                         </button>
         
-                        <button type="button" class="btn btn-danger d-none">
+                        <button type="button" class="btn btn-danger reset-btn d-none">
                             <span>Reset</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
@@ -121,7 +127,7 @@
                             </span>
                         </button>
         
-                        <button type="button" class="btn btn-success d-none">
+                        <button type="button" class="btn btn-success continue-btn d-none">
                             <span>Continue</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">

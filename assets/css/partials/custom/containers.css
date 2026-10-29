@@ -21,6 +21,10 @@ body {
     box-shadow: 6px 6px 16px 2px #0000001a;
 }
 
+.label-container {
+    margin-bottom: 8px;
+}
+
 .inputs-container {
     display: flex;
     flex-wrap: wrap;
