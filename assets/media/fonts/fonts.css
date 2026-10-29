@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "anek-light";
+    src: url("anek-bangla/AnekBangla-Light.ttf");
+}
+
+@font-face {
+    font-family: "anek-medium";
+    src: url("anek-bangla/AnekBangla-Medium.ttf");
+}
+
+@font-face {
+    font-family: "anek-semibold";
+    src: url("anek-bangla/AnekBangla-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "anek-bold";
+    src: url("anek-bangla/AnekBangla-Bold.ttf");
+}

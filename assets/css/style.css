@@ -1,11 +1,12 @@
-body {
-    background-color: #dcd8e4;
-}
+@import "../media/fonts/fonts.css";
+@import "./partials/variables.css";
+@import "./partials/utilities.css";
+@import "./partials/custom/containers.css";
+@import "./partials/custom/style.css";
 
-label, span {
-    font-size: 14px;
-}
-
-.exercise-icons {
-    font-size: 30px;
-}
+/* font names:
+    anek-light
+    anek-medium
+    anek-semibold
+    anek-bold
+*/
